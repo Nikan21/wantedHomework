@@ -7,48 +7,60 @@ async function users() {
   const data = await responsive.json();
   arrayUsers.push(...data.results);
 }
-users();
 
-const window1 = document.querySelector(".window1");
 
-for (let index = 0; index <= arrayUsers.length; index++) {
-  console.log("Hello");
+users().then(() => {
+  console.log(arrayUsers);
+  const window1 = document.querySelector(".window1");
 
-  const userCard = document.createElement("article");
-  userCard.className = 'userCard'
+  for (let index = 0; index < arrayUsers.length; index++) {
+    console.log("Hello", arrayUsers[index]);
 
-  const header = document.createElement("header");
-  header.className = 'header'
-  userCard.appendChild(header)
+    // 
+    const user = arrayUsers[index]
 
-  const headerFirstLine = document.createElement("div");
-  headerFirstLine.className = 'headerFirstLine'
+    const userCard = document.createElement("article");
+    userCard.className = "userCard";
 
-  const headerSecondLine = document.createElement("div");
-  headerSecondLine.className = 'headerSecondLine'
+    const header = document.createElement("header");
+    header.className = "header";
+    userCard.appendChild(header);
 
-  header.appendChild(headerFirstLine)
-  header.appendChild(headerSecondLine)
+    const headerFirstLine = document.createElement("div");
+    headerFirstLine.className = "headerFirstLine";
 
-  const main = document.createElement("main");
-  main.className = 'main'
-  userCard.appendChild(main)
+    //
+    headerFirstLine.textContent = 'WANTED'
 
-  const avatar = document.createElement("div");
-  avatar.className = 'avatar'
-  main.appendChild(avatar)
+    const headerSecondLine = document.createElement("div");
+    headerSecondLine.className = "headerSecondLine";
 
-  const footer = document.createElement("footer");
-  footer.className = 'footer'
-  userCard.appendChild(footer)
+    //
+    headerSecondLine.textContent = `${user.name.first} ${user.name.last}`
 
-  const footerFirstLine = document.createElement("div");
-  footerFirstLine.className = 'footerFirstLine'
-  const footerSecondLine = document.createElement("div");
-  footerSecondLine.className = 'footerSecondLine'
+    header.appendChild(headerFirstLine);
+    header.appendChild(headerSecondLine);
 
-  footer.appendChild(footerFirstLine)
-  footer.appendChild(footerSecondLine)
+    const main = document.createElement("main");
+    main.className = "main";
+    userCard.appendChild(main);
 
-  window1.appendChild(userCard);
-}
+    const avatar = document.createElement("div");
+    avatar.className = "avatar";
+    main.appendChild(avatar);
+
+    const footer = document.createElement("footer");
+    footer.className = "footer";
+    userCard.appendChild(footer);
+
+    const footerFirstLine = document.createElement("div");
+    footerFirstLine.className = "footerFirstLine";
+    const footerSecondLine = document.createElement("div");
+    footerSecondLine.className = "footerSecondLine";
+
+    footer.appendChild(footerFirstLine);
+    footer.appendChild(footerSecondLine);
+
+    window1.appendChild(userCard);
+  }
+});
