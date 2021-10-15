@@ -15,26 +15,40 @@ for (let index = 0; index <= arrayUsers.length; index++) {
   console.log("Hello");
 
   const userCard = document.createElement("article");
+  userCard.className = 'userCard'
 
-  const headerText = document.createElement("header");
+  const header = document.createElement("header");
+  header.className = 'header'
+  userCard.appendChild(header)
 
-  userCard.appendChild(headerText)
   const headerFirstLine = document.createElement("div");
+  headerFirstLine.className = 'headerFirstLine'
+
   const headerSecondLine = document.createElement("div");
-  headerText.appendChild(headerFirstLine)
-  headerText.appendChild(headerSecondLine)
+  headerSecondLine.className = 'headerSecondLine'
+
+  header.appendChild(headerFirstLine)
+  header.appendChild(headerSecondLine)
 
   const main = document.createElement("main");
+  main.className = 'main'
   userCard.appendChild(main)
+
   const avatar = document.createElement("div");
+  avatar.className = 'avatar'
   main.appendChild(avatar)
 
-  const footerText = document.createElement("footer");
-  userCard.appendChild(footerText)
+  const footer = document.createElement("footer");
+  footer.className = 'footer'
+  userCard.appendChild(footer)
+
   const footerFirstLine = document.createElement("div");
+  footerFirstLine.className = 'footerFirstLine'
   const footerSecondLine = document.createElement("div");
-  footerText.appendChild(footerFirstLine)
-  footerText.appendChild(footerSecondLine)
+  footerSecondLine.className = 'footerSecondLine'
+
+  footer.appendChild(footerFirstLine)
+  footer.appendChild(footerSecondLine)
 
   window1.appendChild(userCard);
 }
