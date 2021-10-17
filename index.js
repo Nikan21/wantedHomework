@@ -2,7 +2,7 @@ const arrayUsers = [];
 
 async function users() {
   const responsive = await fetch(
-    "https://randomuser.me/api/?seed='people'&results=3"
+    "https://randomuser.me/api/?seed='people'&results=5"
   );
   const data = await responsive.json();
   arrayUsers.push(...data.results);
@@ -61,7 +61,7 @@ users().then(() => {
 
     const footerSecondLine = document.createElement("div");
     footerSecondLine.className = "footerSecondLine";
-    footerSecondLine.textContent = `1${index}0,000`;
+    footerSecondLine.textContent = `$1${index}0 000`;
 
     footer.appendChild(footerFirstLine);
     footer.appendChild(footerSecondLine);
